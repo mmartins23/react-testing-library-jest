@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-const UserForm = () => {
+const UserForm = ({ onUserAdd }) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name, email);
+
+        onUserAdd({ name, email });
     }
 
     return (
@@ -15,7 +16,6 @@ const UserForm = () => {
                 <label>Name</label>
                 <input value={name} onChange={e => setName(e.target.value)} />
             </div>
-
             <div>
                 <label>Email</label>
                 <input value={email} onChange={e => setEmail(e.target.value)} />
@@ -24,5 +24,4 @@ const UserForm = () => {
         </form>
     )
 }
-
 export default UserForm;

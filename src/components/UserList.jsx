@@ -1,18 +1,24 @@
-const UserList = () => {
+function UserList({ users }) {
+    const renderedUsers = users.map((user) => {
+      return (
+        <tr key={user.name}>
+          <td>{user.name}</td>
+          <td>{user.email}</td>
+        </tr>
+      );
+    });
+
     return (
-        <form>
-            <div>
-                <label>Name</label>
-                <input />
-            </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>{renderedUsers}</tbody>
+      </table>
+    );
+  }
 
-            <div>
-                <label>Email</label>
-                <input />
-            </div>
-            <button>Add user</button>
-        </form>
-    )
-}
-
-export default UserList;
+  export default UserList;
