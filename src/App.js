@@ -16,7 +16,6 @@ function App() {
       <UserForm onUserAdd={onUserAdd} />
       <hr/>
       <UserList users={users}/>
-
     </div>
   );
 }
