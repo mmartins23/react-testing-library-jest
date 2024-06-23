@@ -11,6 +11,8 @@ test('render one row per user', () => {
     render(<UserList users={users}/>)
 
     // Find all the rows in the table
+    const rows = screen.getAllByRole('row');
 
     // Assertion: correct number of rows in table
+    expect(rows).toHaveLength(2);
 })
