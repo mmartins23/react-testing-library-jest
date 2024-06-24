@@ -27,3 +27,19 @@ test('getBy, queryBy, findBy when they find 1 element', async () => {
     ).toBeInTheDocument();  // Finds the <ul> element after waiting
   });
   
+  test('getAllBy, queryAllBy, findAllBy', async () => {
+    render(<ColorList />);
+  
+    expect(
+      screen.getAllByRole('listitem')
+    ).toHaveLength(3);  // Finds all <li> elements
+  
+    expect(
+      screen.queryAllByRole('listitem')
+    ).toHaveLength(3);  // Finds all <li> elements
+  
+    expect(
+      await screen.findAllByRole('listitem')
+    ).toHaveLength(3);  // Finds all <li> elements after waiting
+  });
+  
