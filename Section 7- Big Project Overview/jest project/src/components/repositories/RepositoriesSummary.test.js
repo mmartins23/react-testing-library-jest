@@ -9,9 +9,13 @@ test("displays the primary language of the repositoy", () => {
         open_issues: 1
     }
 
-    render(<RepositoriesSummary repository={repository}/>)
-    
-    const language = screen.getByText('Javascript');
+    render(<RepositoriesSummary repository={repository}/>);
 
-    expect(language).toBeInTheDocument();
+    for (let key in repository) {
+        const value = repository[key];
+        const element = screen.getByText(value);
+
+        expect(element).toBeInTheDocument();
+    }
+
 })
